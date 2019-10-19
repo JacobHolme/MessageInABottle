@@ -16,7 +16,8 @@
 		4FE323C3235AD92B0012AF6C /* MessageInABottleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323C2235AD92B0012AF6C /* MessageInABottleTests.swift */; };
 		4FE323CE235AD92B0012AF6C /* MessageInABottleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */; };
 		4FE323DC235ADCB20012AF6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323DB235ADCB20012AF6C /* User.swift */; };
-		4FE323E2235AE2A10012AF6C /* enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323E1235AE2A10012AF6C /* enumerations.swift */; };
+		4FE323E2235AE2A10012AF6C /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323E1235AE2A10012AF6C /* Enumerations.swift */; };
+		4FE323E6235B15340012AF6C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323E5235B15340012AF6C /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,8 @@
 		4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInABottleUITests.swift; sourceTree = "<group>"; };
 		4FE323CF235AD92B0012AF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FE323DB235ADCB20012AF6C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4FE323E1235AE2A10012AF6C /* enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumerations.swift; sourceTree = "<group>"; };
+		4FE323E1235AE2A10012AF6C /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		4FE323E5235B15340012AF6C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 		4FE323AA235AD92A0012AF6C /* MessageInABottle */ = {
 			isa = PBXGroup;
 			children = (
-				4FE323E1235AE2A10012AF6C /* enumerations.swift */,
+				4FE323E1235AE2A10012AF6C /* Enumerations.swift */,
+				4FE323E5235B15340012AF6C /* Message.swift */,
 				4FE323DB235ADCB20012AF6C /* User.swift */,
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
 				4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */,
@@ -268,7 +271,8 @@
 				4FE323DC235ADCB20012AF6C /* User.swift in Sources */,
 				4FE323B0235AD92A0012AF6C /* ViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
-				4FE323E2235AE2A10012AF6C /* enumerations.swift in Sources */,
+				4FE323E6235B15340012AF6C /* Message.swift in Sources */,
+				4FE323E2235AE2A10012AF6C /* Enumerations.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
