@@ -18,6 +18,7 @@
 		4FE323DC235ADCB20012AF6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323DB235ADCB20012AF6C /* User.swift */; };
 		4FE323E2235AE2A10012AF6C /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323E1235AE2A10012AF6C /* Enumerations.swift */; };
 		4FE323E6235B15340012AF6C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323E5235B15340012AF6C /* Message.swift */; };
+		69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4FE323DB235ADCB20012AF6C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4FE323E1235AE2A10012AF6C /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		4FE323E5235B15340012AF6C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				4FE323E1235AE2A10012AF6C /* Enumerations.swift */,
 				4FE323E5235B15340012AF6C /* Message.swift */,
 				4FE323DB235ADCB20012AF6C /* User.swift */,
+				69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */,
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
 				4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */,
 				4FE323AF235AD92A0012AF6C /* ViewController.swift */,
@@ -270,6 +273,7 @@
 			files = (
 				4FE323DC235ADCB20012AF6C /* User.swift in Sources */,
 				4FE323B0235AD92A0012AF6C /* ViewController.swift in Sources */,
+				69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				4FE323E6235B15340012AF6C /* Message.swift in Sources */,
 				4FE323E2235AE2A10012AF6C /* Enumerations.swift in Sources */,
