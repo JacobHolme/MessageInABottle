@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7D235B8C7400561363 /* NoticeScreen.swift */; };
 		4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AB235AD92A0012AF6C /* AppDelegate.swift */; };
 		4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */; };
 		4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AF235AD92A0012AF6C /* LoginScreen.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FB15D7D235B8C7400561363 /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
 		4FE323A8235AD92A0012AF6C /* MessageInABottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageInABottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323AB235AD92A0012AF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
 				4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */,
 				4FE323AF235AD92A0012AF6C /* LoginScreen.swift */,
+				4FB15D7D235B8C7400561363 /* NoticeScreen.swift */,
 				4FE323B1235AD92A0012AF6C /* Main.storyboard */,
 				4FE323B4235AD92B0012AF6C /* Assets.xcassets */,
 				4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				4FE323E6235B15340012AF6C /* Message.swift in Sources */,
 				4FE323E2235AE2A10012AF6C /* Enumerations.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
+				4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
