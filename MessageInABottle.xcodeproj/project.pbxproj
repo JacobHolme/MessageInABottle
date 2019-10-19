@@ -11,6 +11,8 @@
 		3135E11B235B8DE000E73399 /* enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E118235B8DE000E73399 /* enumerations.swift */; };
 		3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */; };
 		3135E120235B8DE600E73399 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11E235B8DE600E73399 /* NetworkService.swift */; };
+		31BDCF02235BCBFC0066B799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDCF01235BCBFC0066B799 /* User.swift */; };
+		31BDCF04235BCC360066B799 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDCF03235BCC360066B799 /* DataService.swift */; };
 		31ECB016235BC5E700408AAE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB012235BC5E700408AAE /* ChatViewController.swift */; };
 		31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB013235BC5E700408AAE /* MessageRightCell.swift */; };
 		31ECB018235BC5E700408AAE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB014235BC5E700408AAE /* LoginScreen.swift */; };
@@ -49,6 +51,8 @@
 		3135E118235B8DE000E73399 /* enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumerations.swift; sourceTree = "<group>"; };
 		3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceDelegate.swift; sourceTree = "<group>"; };
 		3135E11E235B8DE600E73399 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		31BDCF01235BCBFC0066B799 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		31BDCF03235BCC360066B799 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		31ECB012235BC5E700408AAE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		31ECB013235BC5E700408AAE /* MessageRightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRightCell.swift; sourceTree = "<group>"; };
 		31ECB014235BC5E700408AAE /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		3135E115235B8DE000E73399 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31BDCF01235BCBFC0066B799 /* User.swift */,
 				3135E116235B8DE000E73399 /* Message.swift */,
 				3135E118235B8DE000E73399 /* enumerations.swift */,
 			);
@@ -108,6 +113,7 @@
 		3135E11C235B8DE600E73399 /* Network Service */ = {
 			isa = PBXGroup;
 			children = (
+				31BDCF03235BCC360066B799 /* DataService.swift */,
 				3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */,
 				3135E11E235B8DE600E73399 /* NetworkService.swift */,
 			);
@@ -135,7 +141,6 @@
 				4FE323C1235AD92B0012AF6C /* MessageInABottleTests */,
 				4FE323CC235AD92B0012AF6C /* MessageInABottleUITests */,
 				4FE323A9235AD92A0012AF6C /* Products */,
-				31ECB010235BC5BD00408AAE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,8 +325,10 @@
 				3135E120235B8DE600E73399 /* NetworkService.swift in Sources */,
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
 				31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */,
+				31BDCF02235BCBFC0066B799 /* User.swift in Sources */,
 				69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
+				31BDCF04235BCC360066B799 /* DataService.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
 				4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */,
 				31ECB018235BC5E700408AAE /* LoginScreen.swift in Sources */,
