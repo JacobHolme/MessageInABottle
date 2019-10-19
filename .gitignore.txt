@@ -1,0 +1,4 @@
+.DS_Store
+/MessageInABottle.xcodeproj/project.xcworkspace/xcuserdata
+/MessageInABottle.xcodeproj/xcuserdata/*.xcuserdatad/
+xcschememanagement.plist
