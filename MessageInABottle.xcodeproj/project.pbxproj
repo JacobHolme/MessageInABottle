@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7D235B8C7400561363 /* NoticeScreen.swift */; };
 		3135E119235B8DE000E73399 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E116235B8DE000E73399 /* Message.swift */; };
 		3135E11A235B8DE000E73399 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E117235B8DE000E73399 /* User.swift */; };
 		3135E11B235B8DE000E73399 /* enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E118235B8DE000E73399 /* enumerations.swift */; };
 		3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */; };
 		3135E120235B8DE600E73399 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11E235B8DE600E73399 /* NetworkService.swift */; };
+		4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7D235B8C7400561363 /* NoticeScreen.swift */; };
+		4FB15D80235BA1F100561363 /* SafetyStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */; };
 		4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AB235AD92A0012AF6C /* AppDelegate.swift */; };
 		4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */; };
 		4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AF235AD92A0012AF6C /* LoginScreen.swift */; };
@@ -45,13 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-
-		4FB15D7D235B8C7400561363 /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
 		3135E116235B8DE000E73399 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		3135E117235B8DE000E73399 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3135E118235B8DE000E73399 /* enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumerations.swift; sourceTree = "<group>"; };
 		3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceDelegate.swift; sourceTree = "<group>"; };
 		3135E11E235B8DE600E73399 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4FB15D7D235B8C7400561363 /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
+		4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyStatusViewController.swift; sourceTree = "<group>"; };
 		4FE323A8235AD92A0012AF6C /* MessageInABottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageInABottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323AB235AD92A0012AF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 				4FE323AF235AD92A0012AF6C /* LoginScreen.swift */,
 				4FB15D7D235B8C7400561363 /* NoticeScreen.swift */,
 				4FE323B1235AD92A0012AF6C /* Main.storyboard */,
+				4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */,
 				4FE323B4235AD92B0012AF6C /* Assets.xcassets */,
 				4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */,
 				4FE323B9235AD92B0012AF6C /* Info.plist */,
@@ -305,6 +307,7 @@
 			files = (
 				4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */,
 				3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */,
+				4FB15D80235BA1F100561363 /* SafetyStatusViewController.swift in Sources */,
 				3135E120235B8DE600E73399 /* NetworkService.swift in Sources */,
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
 				4FE323DC235ADCB20012AF6C /* User.swift in Sources */,
