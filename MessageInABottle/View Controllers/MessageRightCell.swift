@@ -23,9 +23,9 @@ class MessageRightCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
         
-            bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
-            bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 10)
+            bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 20)
         
         ])
     }

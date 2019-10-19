@@ -50,7 +50,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         
         // Set Navigation Bar Title
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         // Specify Delegate
         networkService.delegate = self
@@ -70,11 +69,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         messagesTableView.register(MessageLeftCell.self, forCellReuseIdentifier: "LeftMessage")
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
+        messagesTableView.estimatedRowHeight = 100
+        messagesTableView.rowHeight = UITableView.automaticDimension
+        messagesTableView.separatorStyle = .none
+        
+        messagesTableView.reloadData()
         
     }
     
     func constrainViews() {
         NSLayoutConstraint.activate([
+            
+            messagesTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            messagesTableView.bottomAnchor.constraint(equalTo: messageView.topAnchor),
+            messagesTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            messagesTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             
             messageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             messageView.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -103,15 +112,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: TableView Delegate Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath)
+        let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath) as! MessageLeftCell
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+        return UITableView.automaticDimension
+    
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+    }
 }
 
 extension ChatViewController: NetworkServiceDelegate {

@@ -13,6 +13,7 @@
 		3135E120235B8DE600E73399 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11E235B8DE600E73399 /* NetworkService.swift */; };
 		31BDCF02235BCBFC0066B799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDCF01235BCBFC0066B799 /* User.swift */; };
 		31BDCF04235BCC360066B799 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDCF03235BCC360066B799 /* DataService.swift */; };
+		31BDCF06235BD3B20066B799 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDCF05235BD3B20066B799 /* PaddingLabel.swift */; };
 		31ECB016235BC5E700408AAE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB012235BC5E700408AAE /* ChatViewController.swift */; };
 		31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB013235BC5E700408AAE /* MessageRightCell.swift */; };
 		31ECB018235BC5E700408AAE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB014235BC5E700408AAE /* LoginScreen.swift */; };
@@ -53,6 +54,7 @@
 		3135E11E235B8DE600E73399 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		31BDCF01235BCBFC0066B799 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31BDCF03235BCC360066B799 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		31BDCF05235BD3B20066B799 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		31ECB012235BC5E700408AAE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		31ECB013235BC5E700408AAE /* MessageRightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRightCell.swift; sourceTree = "<group>"; };
 		31ECB014235BC5E700408AAE /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				31BDCF01235BCBFC0066B799 /* User.swift */,
 				3135E116235B8DE000E73399 /* Message.swift */,
 				3135E118235B8DE000E73399 /* enumerations.swift */,
+				31BDCF05235BD3B20066B799 /* PaddingLabel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,8 +128,8 @@
 			children = (
 				31ECB012235BC5E700408AAE /* ChatViewController.swift */,
 				31ECB013235BC5E700408AAE /* MessageRightCell.swift */,
-				31ECB014235BC5E700408AAE /* LoginScreen.swift */,
 				31ECB015235BC5E700408AAE /* MessageLeftCell.swift */,
+				31ECB014235BC5E700408AAE /* LoginScreen.swift */,
 				4FB15D7D235B8C7400561363 /* NoticeScreen.swift */,
 				69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */,
 				4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */,
@@ -323,6 +326,7 @@
 				31ECB019235BC5E700408AAE /* MessageLeftCell.swift in Sources */,
 				4FB15D80235BA1F100561363 /* SafetyStatusViewController.swift in Sources */,
 				3135E120235B8DE600E73399 /* NetworkService.swift in Sources */,
+				31BDCF06235BD3B20066B799 /* PaddingLabel.swift in Sources */,
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
 				31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */,
 				31BDCF02235BCBFC0066B799 /* User.swift in Sources */,
