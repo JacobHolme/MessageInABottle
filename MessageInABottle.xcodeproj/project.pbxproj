@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7D235B8C7400561363 /* NoticeScreen.swift */; };
 		3135E119235B8DE000E73399 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E116235B8DE000E73399 /* Message.swift */; };
 		3135E11A235B8DE000E73399 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E117235B8DE000E73399 /* User.swift */; };
 		3135E11B235B8DE000E73399 /* enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E118235B8DE000E73399 /* enumerations.swift */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
+		4FB15D7D235B8C7400561363 /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
 		3135E116235B8DE000E73399 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		3135E117235B8DE000E73399 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3135E118235B8DE000E73399 /* enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumerations.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
 				4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */,
 				4FE323AF235AD92A0012AF6C /* LoginScreen.swift */,
+				4FB15D7D235B8C7400561363 /* NoticeScreen.swift */,
 				4FE323B1235AD92A0012AF6C /* Main.storyboard */,
 				4FE323B4235AD92B0012AF6C /* Assets.xcassets */,
 				4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */,
@@ -297,6 +301,7 @@
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				3135E11A235B8DE000E73399 /* User.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
+				4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */,
 				3135E11B235B8DE000E73399 /* enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
