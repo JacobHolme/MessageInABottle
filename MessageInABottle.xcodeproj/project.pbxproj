@@ -12,6 +12,10 @@
 		3135E11B235B8DE000E73399 /* enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E118235B8DE000E73399 /* enumerations.swift */; };
 		3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */; };
 		3135E120235B8DE600E73399 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11E235B8DE600E73399 /* NetworkService.swift */; };
+		3135E123235B8F5700E73399 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E122235B8F5700E73399 /* ChatViewController.swift */; };
+		31ECB008235B95B800408AAE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB007235B95B800408AAE /* DataService.swift */; };
+		31ECB00A235BB4DA00408AAE /* MessageRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB009235BB4DA00408AAE /* MessageRightCell.swift */; };
+		31ECB00C235BB53200408AAE /* MessageLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB00B235BB53200408AAE /* MessageLeftCell.swift */; };
 		4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AB235AD92A0012AF6C /* AppDelegate.swift */; };
 		4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */; };
 		4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AF235AD92A0012AF6C /* LoginScreen.swift */; };
@@ -45,6 +49,10 @@
 		3135E118235B8DE000E73399 /* enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumerations.swift; sourceTree = "<group>"; };
 		3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceDelegate.swift; sourceTree = "<group>"; };
 		3135E11E235B8DE600E73399 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3135E122235B8F5700E73399 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		31ECB007235B95B800408AAE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		31ECB009235BB4DA00408AAE /* MessageRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRightCell.swift; sourceTree = "<group>"; };
+		31ECB00B235BB53200408AAE /* MessageLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLeftCell.swift; sourceTree = "<group>"; };
 		4FE323A8235AD92A0012AF6C /* MessageInABottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageInABottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323AB235AD92A0012AF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,8 +109,20 @@
 			children = (
 				3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */,
 				3135E11E235B8DE600E73399 /* NetworkService.swift */,
+				31ECB007235B95B800408AAE /* DataService.swift */,
 			);
 			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		3135E121235B8F3700E73399 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4FE323AF235AD92A0012AF6C /* LoginScreen.swift */,
+				3135E122235B8F5700E73399 /* ChatViewController.swift */,
+				31ECB00B235BB53200408AAE /* MessageLeftCell.swift */,
+				31ECB009235BB4DA00408AAE /* MessageRightCell.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		4FE3239F235AD92A0012AF6C = {
@@ -128,11 +148,11 @@
 		4FE323AA235AD92A0012AF6C /* MessageInABottle */ = {
 			isa = PBXGroup;
 			children = (
+				3135E121235B8F3700E73399 /* View Controllers */,
 				3135E115235B8DE000E73399 /* Models */,
 				3135E11C235B8DE600E73399 /* Network Service */,
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
 				4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */,
-				4FE323AF235AD92A0012AF6C /* LoginScreen.swift */,
 				4FE323B1235AD92A0012AF6C /* Main.storyboard */,
 				4FE323B4235AD92B0012AF6C /* Assets.xcassets */,
 				4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */,
@@ -290,14 +310,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31ECB00A235BB4DA00408AAE /* MessageRightCell.swift in Sources */,
 				4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */,
 				3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */,
 				3135E120235B8DE600E73399 /* NetworkService.swift in Sources */,
+				31ECB00C235BB53200408AAE /* MessageLeftCell.swift in Sources */,
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				3135E11A235B8DE000E73399 /* User.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
+				3135E123235B8F5700E73399 /* ChatViewController.swift in Sources */,
 				3135E11B235B8DE000E73399 /* enumerations.swift in Sources */,
+				31ECB008235B95B800408AAE /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,8 +495,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L7JMX2727F;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,8 +514,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L7JMX2727F;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

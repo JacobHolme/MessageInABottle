@@ -57,26 +57,19 @@ class NetworkService: NSObject {
     }
     
     // A function for sending out a message to all connected devices on the network
-    func sendOut(message: String, sender: String, timestamp: String) {
+    func sendOut(message: Message) {
         
         if session.connectedPeers.count > 0 {
             do {
-                self.lasRecordedSender = sender
-                self.lastRecordedtimestamp = timestamp
+                self.lasRecordedSender = message.sender
+                self.lastRecordedtimestamp = message.timestamp
                 
-                let messageData = try! JSONEncoder().encode(message)
-                try self.session.send(messageData, toPeers: session.connectedPeers, with: .reliable)
+                let message = "\(message.sender),\(message.content),\(message.timestamp)"
+                try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
                 
             } catch let error {
                 print("Error: \(error)")
             }
-        }
-    }
-    
-    // A function for pushing on a sent request to all connected devices on it's network provided it has not seen the message before
-    func pushOn(message: String, sender: String, timestamp: String) {
-        if sender != self.lastRecordedtimestamp && timestamp != lastRecordedtimestamp {
-            self.sendOut(message: message, sender: sender, timestamp: timestamp)
         }
     }
 }
@@ -84,7 +77,8 @@ class NetworkService: NSObject {
 extension NetworkService: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        print("Found Peer: \(peerID)")
+        print("Did Receive Invitation From Peer: \(peerID)")
+        invitationHandler(true, self.session)
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
@@ -97,7 +91,7 @@ extension NetworkService: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         print("Found Peer: \(peerID)")
         print("Invite Peer: \(peerID)")
-        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 20)
+        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
@@ -120,11 +114,12 @@ extension NetworkService: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("Did Receive Data: \(data)")
         
-        do {
-            let message = try decoder.decode(Message.self, from: data)
+        let strArray = String(data: data, encoding: .utf8)!.components(separatedBy: ",")
+        let message = Message(sender: strArray[0], content: strArray[1], timestamp: strArray[2])
+        
+        if message.sender != self.lastRecordedtimestamp && message.timestamp != lastRecordedtimestamp {
             self.delegate?.receivedMessage(manager: self, message: message)
-        } catch let parsingError {
-            print("error: \(parsingError)")
+            sendOut(message: message)
         }
     }
     

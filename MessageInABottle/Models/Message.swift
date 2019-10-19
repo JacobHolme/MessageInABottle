@@ -9,7 +9,7 @@
 import Foundation
 
 struct Message: Codable {
-    var user: User
-    var message: String
+    var sender: String
+    var content: String
     var timestamp: String
 }

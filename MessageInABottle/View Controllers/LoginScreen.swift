@@ -43,6 +43,7 @@ class LoginScreen: UIViewController
         loginButton.layer.cornerRadius = 15
         loginButton.layer.borderWidth = 5
         loginButton.layer.borderColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         
         firstNameRow.spacing = 6
         firstNameRow.addArrangedSubview(firstNameLabel)
@@ -70,7 +71,6 @@ class LoginScreen: UIViewController
         logo.translatesAutoresizingMaskIntoConstraints = false
         appNameLabel.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-
         
         NSLayoutConstraint.activate([
             
@@ -90,6 +90,14 @@ class LoginScreen: UIViewController
             loginButton.widthAnchor.constraint(equalToConstant: view.frame.width / 3),
             loginButton.heightAnchor.constraint(equalToConstant: view.frame.width / 9)
         ])
+    }
+    
+    @objc func loginButtonPressed() {
+        DataService.firstName = firstNameTextField.text!
+        DataService.lastName = lastNameTextField.text!
+        
+        let vc = ChatViewController()
+        self.show(vc, sender: nil)
     }
 }
 
