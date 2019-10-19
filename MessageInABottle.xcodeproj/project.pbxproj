@@ -24,7 +24,6 @@
 		4FE323B8235AD92B0012AF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */; };
 		4FE323C3235AD92B0012AF6C /* MessageInABottleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323C2235AD92B0012AF6C /* MessageInABottleTests.swift */; };
 		4FE323CE235AD92B0012AF6C /* MessageInABottleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */; };
-		4FE323DC235ADCB20012AF6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323DB235ADCB20012AF6C /* User.swift */; };
 		69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		4FE323C9235AD92B0012AF6C /* MessageInABottleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessageInABottleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInABottleUITests.swift; sourceTree = "<group>"; };
 		4FE323CF235AD92B0012AF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FE323DB235ADCB20012AF6C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,14 +112,6 @@
 				3135E11E235B8DE600E73399 /* NetworkService.swift */,
 			);
 			path = "Network Service";
-			sourceTree = "<group>";
-		};
-		31ECB010235BC5BD00408AAE /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				4FE323DB235ADCB20012AF6C /* User.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		31ECB011235BC5E700408AAE /* View Controllers */ = {
@@ -330,7 +320,6 @@
 				3135E120235B8DE600E73399 /* NetworkService.swift in Sources */,
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
 				31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */,
-				4FE323DC235ADCB20012AF6C /* User.swift in Sources */,
 				69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
