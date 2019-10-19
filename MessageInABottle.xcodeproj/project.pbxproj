@@ -12,18 +12,21 @@
 		3135E11B235B8DE000E73399 /* enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E118235B8DE000E73399 /* enumerations.swift */; };
 		3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */; };
 		3135E120235B8DE600E73399 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E11E235B8DE600E73399 /* NetworkService.swift */; };
-		3135E123235B8F5700E73399 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135E122235B8F5700E73399 /* ChatViewController.swift */; };
-		31ECB008235B95B800408AAE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB007235B95B800408AAE /* DataService.swift */; };
-		31ECB00A235BB4DA00408AAE /* MessageRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB009235BB4DA00408AAE /* MessageRightCell.swift */; };
-		31ECB00C235BB53200408AAE /* MessageLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB00B235BB53200408AAE /* MessageLeftCell.swift */; };
+		31ECB016235BC5E700408AAE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB012235BC5E700408AAE /* ChatViewController.swift */; };
+		31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB013235BC5E700408AAE /* MessageRightCell.swift */; };
+		31ECB018235BC5E700408AAE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB014235BC5E700408AAE /* LoginScreen.swift */; };
+		31ECB019235BC5E700408AAE /* MessageLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECB015235BC5E700408AAE /* MessageLeftCell.swift */; };
+		4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7D235B8C7400561363 /* NoticeScreen.swift */; };
+		4FB15D80235BA1F100561363 /* SafetyStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */; };
 		4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AB235AD92A0012AF6C /* AppDelegate.swift */; };
 		4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */; };
-		4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AF235AD92A0012AF6C /* LoginScreen.swift */; };
 		4FE323B3235AD92A0012AF6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE323B1235AD92A0012AF6C /* Main.storyboard */; };
 		4FE323B5235AD92B0012AF6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE323B4235AD92B0012AF6C /* Assets.xcassets */; };
 		4FE323B8235AD92B0012AF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */; };
 		4FE323C3235AD92B0012AF6C /* MessageInABottleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323C2235AD92B0012AF6C /* MessageInABottleTests.swift */; };
 		4FE323CE235AD92B0012AF6C /* MessageInABottleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */; };
+		4FE323DC235ADCB20012AF6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323DB235ADCB20012AF6C /* User.swift */; };
+		69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +52,15 @@
 		3135E118235B8DE000E73399 /* enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumerations.swift; sourceTree = "<group>"; };
 		3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceDelegate.swift; sourceTree = "<group>"; };
 		3135E11E235B8DE600E73399 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		3135E122235B8F5700E73399 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		31ECB007235B95B800408AAE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		31ECB009235BB4DA00408AAE /* MessageRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRightCell.swift; sourceTree = "<group>"; };
-		31ECB00B235BB53200408AAE /* MessageLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLeftCell.swift; sourceTree = "<group>"; };
+		31ECB012235BC5E700408AAE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		31ECB013235BC5E700408AAE /* MessageRightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRightCell.swift; sourceTree = "<group>"; };
+		31ECB014235BC5E700408AAE /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		31ECB015235BC5E700408AAE /* MessageLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageLeftCell.swift; sourceTree = "<group>"; };
+		4FB15D7D235B8C7400561363 /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
+		4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyStatusViewController.swift; sourceTree = "<group>"; };
 		4FE323A8235AD92A0012AF6C /* MessageInABottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageInABottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323AB235AD92A0012AF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4FE323AF235AD92A0012AF6C /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		4FE323B2235AD92A0012AF6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FE323B4235AD92B0012AF6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FE323B7235AD92B0012AF6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		4FE323C9235AD92B0012AF6C /* MessageInABottleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessageInABottleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInABottleUITests.swift; sourceTree = "<group>"; };
 		4FE323CF235AD92B0012AF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FE323DB235ADCB20012AF6C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,18 +115,28 @@
 			children = (
 				3135E11D235B8DE600E73399 /* NetworkServiceDelegate.swift */,
 				3135E11E235B8DE600E73399 /* NetworkService.swift */,
-				31ECB007235B95B800408AAE /* DataService.swift */,
 			);
 			path = "Network Service";
 			sourceTree = "<group>";
 		};
-		3135E121235B8F3700E73399 /* View Controllers */ = {
+		31ECB010235BC5BD00408AAE /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				4FE323AF235AD92A0012AF6C /* LoginScreen.swift */,
-				3135E122235B8F5700E73399 /* ChatViewController.swift */,
-				31ECB00B235BB53200408AAE /* MessageLeftCell.swift */,
-				31ECB009235BB4DA00408AAE /* MessageRightCell.swift */,
+				4FE323DB235ADCB20012AF6C /* User.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		31ECB011235BC5E700408AAE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				31ECB012235BC5E700408AAE /* ChatViewController.swift */,
+				31ECB013235BC5E700408AAE /* MessageRightCell.swift */,
+				31ECB014235BC5E700408AAE /* LoginScreen.swift */,
+				31ECB015235BC5E700408AAE /* MessageLeftCell.swift */,
+				4FB15D7D235B8C7400561363 /* NoticeScreen.swift */,
+				69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */,
+				4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -132,6 +148,7 @@
 				4FE323C1235AD92B0012AF6C /* MessageInABottleTests */,
 				4FE323CC235AD92B0012AF6C /* MessageInABottleUITests */,
 				4FE323A9235AD92A0012AF6C /* Products */,
+				31ECB010235BC5BD00408AAE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,7 +165,7 @@
 		4FE323AA235AD92A0012AF6C /* MessageInABottle */ = {
 			isa = PBXGroup;
 			children = (
-				3135E121235B8F3700E73399 /* View Controllers */,
+				31ECB011235BC5E700408AAE /* View Controllers */,
 				3135E115235B8DE000E73399 /* Models */,
 				3135E11C235B8DE600E73399 /* Network Service */,
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
@@ -310,18 +327,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31ECB00A235BB4DA00408AAE /* MessageRightCell.swift in Sources */,
-				4FE323B0235AD92A0012AF6C /* LoginScreen.swift in Sources */,
 				3135E11F235B8DE600E73399 /* NetworkServiceDelegate.swift in Sources */,
+				31ECB019235BC5E700408AAE /* MessageLeftCell.swift in Sources */,
+				4FB15D80235BA1F100561363 /* SafetyStatusViewController.swift in Sources */,
 				3135E120235B8DE600E73399 /* NetworkService.swift in Sources */,
-				31ECB00C235BB53200408AAE /* MessageLeftCell.swift in Sources */,
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
+				31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */,
+				4FE323DC235ADCB20012AF6C /* User.swift in Sources */,
+				69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				3135E11A235B8DE000E73399 /* User.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
-				3135E123235B8F5700E73399 /* ChatViewController.swift in Sources */,
+				4FB15D7E235B8C7400561363 /* NoticeScreen.swift in Sources */,
+				31ECB018235BC5E700408AAE /* LoginScreen.swift in Sources */,
+				31ECB016235BC5E700408AAE /* ChatViewController.swift in Sources */,
 				3135E11B235B8DE000E73399 /* enumerations.swift in Sources */,
-				31ECB008235B95B800408AAE /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,9 +515,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XLEYC29AG5;
+				DEVELOPMENT_TEAM = L7JMX2727F;
 				INFOPLIST_FILE = MessageInABottle/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,9 +533,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XLEYC29AG5;
+				DEVELOPMENT_TEAM = L7JMX2727F;
 				INFOPLIST_FILE = MessageInABottle/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
