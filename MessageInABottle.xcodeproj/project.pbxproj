@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31DAF022235B104E0064C44A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DAF021235B104E0064C44A /* NetworkService.swift */; };
+		31DAF024235B1F0A0064C44A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DAF023235B1F0A0064C44A /* Message.swift */; };
+		31DAF028235B210E0064C44A /* NetworkServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DAF027235B210E0064C44A /* NetworkServiceDelegate.swift */; };
 		4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AB235AD92A0012AF6C /* AppDelegate.swift */; };
 		4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */; };
 		4FE323B0235AD92A0012AF6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323AF235AD92A0012AF6C /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31DAF021235B104E0064C44A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		31DAF023235B1F0A0064C44A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		31DAF027235B210E0064C44A /* NetworkServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDelegate.swift; sourceTree = "<group>"; };
 		4FE323A8235AD92A0012AF6C /* MessageInABottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageInABottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323AB235AD92A0012AF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31DAF025235B20D70064C44A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				31DAF023235B1F0A0064C44A /* Message.swift */,
+				4FE323DB235ADCB20012AF6C /* User.swift */,
+				4FE323E1235AE2A10012AF6C /* enumerations.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		31DAF026235B20F30064C44A /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				31DAF021235B104E0064C44A /* NetworkService.swift */,
+				31DAF027235B210E0064C44A /* NetworkServiceDelegate.swift */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
 		4FE3239F235AD92A0012AF6C = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +128,8 @@
 		4FE323AA235AD92A0012AF6C /* MessageInABottle */ = {
 			isa = PBXGroup;
 			children = (
-				4FE323E1235AE2A10012AF6C /* enumerations.swift */,
-				4FE323DB235ADCB20012AF6C /* User.swift */,
+				31DAF026235B20F30064C44A /* Network Service */,
+				31DAF025235B20D70064C44A /* Models */,
 				4FE323AB235AD92A0012AF6C /* AppDelegate.swift */,
 				4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */,
 				4FE323AF235AD92A0012AF6C /* ViewController.swift */,
@@ -269,7 +294,10 @@
 				4FE323B0235AD92A0012AF6C /* ViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				4FE323E2235AE2A10012AF6C /* enumerations.swift in Sources */,
+				31DAF022235B104E0064C44A /* NetworkService.swift in Sources */,
+				31DAF028235B210E0064C44A /* NetworkServiceDelegate.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
+				31DAF024235B1F0A0064C44A /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
