@@ -1,5 +1,5 @@
 //
-//  enumerations.swift
+//  Enumerations.swift
 //  MessageInABottle
 //
 //  Created by Jacob Holme on 10/19/19.
