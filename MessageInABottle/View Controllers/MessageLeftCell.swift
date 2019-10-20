@@ -10,15 +10,20 @@ import UIKit
 
 class MessageLeftCell: UITableViewCell {
     
-    let bubbleView: UILabel = {
-        let label = UILabel()
+    let bubbleView: PaddingLabel = {
+        let label = PaddingLabel()
+        label.text = " Message ksdjlsdkfj;sdfj;lkdasjf;lkdjsflsdkjfl;kdsalfads;lkfjadls;fkadslkfdsf"
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .blue
-        label.layer.cornerRadius = 10
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 20
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
-
-    override func awakeFromNib() {
+    
+    override func didMoveToSuperview() {
         super.awakeFromNib()
         self.addSubview(bubbleView)
         
@@ -26,7 +31,8 @@ class MessageLeftCell: UITableViewCell {
         
             bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
             bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 10)
+            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 10),
+            bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         
         ])
     }
