@@ -18,8 +18,7 @@ class NetworkService: NSObject {
     let decoder = JSONDecoder()
      
     // Last Recorded Crecentials to ensure the same message is NOT received and processed twice to the same device
-    private var lastRecordedtimestamp: String?
-    private var lasRecordedSender: String?
+    private var lastRecordedMessages: [Message] = []
     
     // Service Type must be a unique 15 character long string with only lowercase letters and hyphens
     private let NetworkServiceType = "hack-umass-vii"
@@ -61,8 +60,10 @@ class NetworkService: NSObject {
         
         if session.connectedPeers.count > 0 {
             do {
-                self.lasRecordedSender = message.sender
-                self.lastRecordedtimestamp = message.timestamp
+                if lastRecordedMessages.count > 10 {
+                    lastRecordedMessages = []
+                }
+                lastRecordedMessages.append(message)
                 
                 let message = "\(message.sender),\(message.content),\(message.timestamp)"
                 try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
@@ -91,7 +92,7 @@ extension NetworkService: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         print("Found Peer: \(peerID)")
         print("Invite Peer: \(peerID)")
-        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
+        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 300)
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
@@ -108,7 +109,7 @@ extension NetworkService: MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         print("Peer: \(peerID), changed state: \(state.rawValue)")
-        self.delegate?.connectedDevicesChanged(manager: self, connectedDevice: session.connectedPeers.map{$0.displayName})
+        self.delegate?.connectedDevicesChanged(manager: self, connectedDevices: session.connectedPeers.map{$0.displayName})
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -117,10 +118,20 @@ extension NetworkService: MCSessionDelegate {
         let strArray = String(data: data, encoding: .utf8)!.components(separatedBy: ",")
         let message = Message(sender: strArray[0], content: strArray[1], timestamp: strArray[2])
         
-        if message.sender != self.lastRecordedtimestamp && message.timestamp != lastRecordedtimestamp {
+        if !messageInRecentHistory(incomingMessage: message) {
             self.delegate?.receivedMessage(manager: self, message: message)
             sendOut(message: message)
         }
+    }
+    
+    func messageInRecentHistory(incomingMessage: Message) -> Bool {
+        for message in lastRecordedMessages {
+            if message.sender == incomingMessage.sender && message.timestamp == incomingMessage.timestamp {
+                return true
+            }
+        }
+        
+        return false
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

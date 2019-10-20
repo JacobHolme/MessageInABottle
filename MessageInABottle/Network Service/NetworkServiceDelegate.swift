@@ -10,7 +10,7 @@ import Foundation
 
 protocol NetworkServiceDelegate {
     
-    func connectedDevicesChanged(manager: NetworkService, connectedDevice: [String])
+    func connectedDevicesChanged(manager: NetworkService, connectedDevices: [String])
     
     func receivedMessage(manager: NetworkService, message: Message)
 }

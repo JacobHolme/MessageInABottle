@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    
+    // MARK: Data
+    
+    // Array of Messages
+    var messages: [Message] = []
 
     // Instance of Network Service
     let networkService = NetworkService()
     
-    // Instance of Date
-    let date = Date()
+    // MARK: Views
     
     var messagesTableView: UITableView = {
         let tableView = UITableView()
@@ -44,17 +48,34 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Text something here..."
+        textField.returnKeyType = .send
         return textField
     }()
     
+    let dismissKeyboardGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    
+    // MARK: View Did Load and Setup View
+    
     override func viewDidLoad() {
         
-        // Set Navigation Bar Title
+        // Setup Notification for keyboard responses
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        // Set UITextField Delegate
+        textField.delegate = self
+        
+        // Bring Up Login Screen if they have not made an account
+        if DataService.firstName == nil || DataService.lastName == nil {
+            let authenticationVC = LoginScreen()
+            present(authenticationVC, animated: true, completion: nil)
+        }
+
         // Specify Delegate
         networkService.delegate = self
         
         // Add Subviews
+        view.addGestureRecognizer(dismissKeyboardGR)
         view.addSubview(messageView)
         messageView.addSubview(sendButton)
         messageView.addSubview(textField)
@@ -63,10 +84,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupTableView()
         constrainViews()
         
+        // if Messages are not empty scroll to the bottom by default
+        if !messages.isEmpty {
+            messagesTableView.scrollToBottom()
+        }
     }
     
     func setupTableView() {
         messagesTableView.register(MessageLeftCell.self, forCellReuseIdentifier: "LeftMessage")
+        messagesTableView.register(MessageRightCell.self, forCellReuseIdentifier: "RightMessage")
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
         messagesTableView.estimatedRowHeight = 100
@@ -102,27 +128,66 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         ])
     }
     
+    // MARK: Keyboard Handlers
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        if self.view.frame.origin.y == 0{
+            self.view.frame.origin.y -= keyboardFrame.height
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y += keyboardFrame.height
+        }
+    }
+    
+    // Dismisses Keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     // Sending Message button action
     @objc func sendMessage() {
-        let user = User(firstName: DataService.firstName ?? "Test", lastName: DataService.lastName ?? "Test")
-        let message = Message(sender: user.asString(), content: "Hello World", timestamp: String(describing: date.timeIntervalSince1970))
-        networkService.sendOut(message: message)
+        
+        if !(textField.text == "") {
+            let message = Message(sender: DataService.currentUserID, content: textField.text!, timestamp: String(describing: NSDate().timeIntervalSince1970))
+            messages.append(message)
+            messagesTableView.reloadData()
+            networkService.sendOut(message: message)
+            textField.text = ""
+        }
     }
     
     // MARK: TableView Delegate Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        30
+        messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath) as! MessageLeftCell
         
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if messages[indexPath.row].sender != DataService.currentUserID {
+            
+            let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath) as! MessageLeftCell
+            cell.bubbleView.text = messages[indexPath.row].content
+            cell.nameLabel.text = messages[indexPath.row].sender
+            return cell
+            
+        } else {
+            
+            let cell = messagesTableView.dequeueReusableCell(withIdentifier: "RightMessage", for: indexPath) as! MessageRightCell
+            cell.bubbleView.text = messages[indexPath.row].content
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,22 +199,44 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
     }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        sendMessage()
+        return true
+    }
 }
+
+// MARK: Network Service Delegate Extension
 
 extension ChatViewController: NetworkServiceDelegate {
     
     // Functions Required by the delegate method
-    func connectedDevicesChanged(manager: NetworkService, connectedDevice: [String]) {
+    func connectedDevicesChanged(manager: NetworkService, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
-            // Do Something
+            self.navigationItem.title = "\(connectedDevices)"
         }
     }
     
     func receivedMessage(manager: NetworkService, message: Message) {
         OperationQueue.main.addOperation {
-            // Do Something
+            self.messages.append(message)
+            self.messagesTableView.reloadData()
+            self.messagesTableView.scrollToBottom()
         }
     }
-    
-    
+}
+
+extension UITableView {
+
+    func scrollToBottom(){
+
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.numberOfRows(inSection: self.numberOfSections - 1) - 1, section: self.numberOfSections - 1)
+            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
 }

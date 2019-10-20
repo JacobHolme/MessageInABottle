@@ -26,6 +26,8 @@ class LoginScreen: UIViewController
     {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
         logo.image = UIImage(named: "Logo")
         
         appNameLabel.text = "Message in a Bottle"
@@ -96,8 +98,7 @@ class LoginScreen: UIViewController
         DataService.firstName = firstNameTextField.text!
         DataService.lastName = lastNameTextField.text!
         
-        let vc = ChatViewController()
-        self.show(vc, sender: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 

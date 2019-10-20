@@ -40,5 +40,9 @@ class DataService {
         }
     }
     
+    static var currentUserID = {
+        return DataService.firstName! + " " + DataService.lastName!
+    }()
+    
     
 }
