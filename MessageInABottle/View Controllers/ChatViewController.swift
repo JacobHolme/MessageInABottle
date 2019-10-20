@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    
+    // MARK: Data
+    
+    // Array of Messages
+    var messages: [Message] = []
 
     // Instance of Network Service
     let networkService = NetworkService()
     
-    // Instance of Date
-    let date = Date()
+    var currentStatus = DataService.status ?? "stuck"
+    
+    // MARK: Views
     
     var messagesTableView: UITableView = {
         let tableView = UITableView()
@@ -32,7 +38,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var sendButton: UIButton = {
         let button = UIButton()
         button.setTitle("Send", for: .normal)
-        button.backgroundColor = .red
+        button.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,17 +50,47 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Text something here..."
+        textField.returnKeyType = .done
         return textField
     }()
     
+    var navLabel: UILabel = {
+        let navLabel = UILabel()
+        navLabel.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        navLabel.textColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        return navLabel
+    }()
+    
+    let dismissKeyboardGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    
+    // MARK: View Did Load and Setup View
+    
     override func viewDidLoad() {
         
-        // Set Navigation Bar Title
+        // Setup Notification for keyboard responses
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        // Set UITextField Delegate
+        textField.delegate = self
+        
+        // Bring Up Login Screen if they have not made an account
+        if DataService.firstName == nil || DataService.lastName == nil {
+            let authenticationVC = LoginScreen()
+            present(authenticationVC, animated: true, completion: nil)
+        }
+        
+        if DataService.status == nil {
+            present(SafetyStatusViewController(), animated: true, completion: nil)
+        }
+        
+        
+
         // Specify Delegate
         networkService.delegate = self
         
         // Add Subviews
+        view.addGestureRecognizer(dismissKeyboardGR)
         view.addSubview(messageView)
         messageView.addSubview(sendButton)
         messageView.addSubview(textField)
@@ -62,11 +98,37 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         setupTableView()
         constrainViews()
+        setupNavigationBar()
+        
+        // if Messages are not empty scroll to the bottom by default
+        if !messages.isEmpty {
+            messagesTableView.scrollToBottom()
+        }
+    }
+    
+    func setupNavigationBar() {
+        
+        // Left UIButtons
+        let refreshButton =  UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.circle.fill"), style: .plain, target: self, action: #selector(refreshBrowsingAndAdvertising))
+        refreshButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        let noticeButton = UIBarButtonItem(image: UIImage(systemName: "exclamationmark.triangle.fill"), style: .plain, target: self, action: #selector(presentNoticeVC))
+        noticeButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        
+        navigationItem.leftBarButtonItems = [refreshButton, noticeButton]
+        
+        // RightUIButtons
+        let statusButton = UIBarButtonItem(image: UIImage(systemName: "s.circle.fill"), style: .plain, target: self, action: #selector(presentStatusVC))
+        statusButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "bolt.fill"), style: .plain, target: self, action: #selector(presentSettingsVC))
+        settingsButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        
+        navigationItem.rightBarButtonItems = [settingsButton, statusButton]
         
     }
     
     func setupTableView() {
         messagesTableView.register(MessageLeftCell.self, forCellReuseIdentifier: "LeftMessage")
+        messagesTableView.register(MessageRightCell.self, forCellReuseIdentifier: "RightMessage")
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
         messagesTableView.estimatedRowHeight = 100
@@ -102,27 +164,105 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         ])
     }
     
+    // MARK: Keyboard Handlers
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= keyboardFrame.height
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y += keyboardFrame.height
+        }
+    }
+    
+    // Dismisses Keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func refreshBrowsingAndAdvertising() {
+        networkService.stopBrowsingAndAdvertising()
+        networkService.startBrowsingAndAdvertising()
+    }
+    
+    @objc func presentNoticeVC() {
+        let noticeView = NoticeScreenViewController()
+        present(noticeView, animated: true, completion: nil)
+    }
+    
+    @objc func presentStatusVC() {
+        let statusView = SafetyStatusViewController()
+        present(statusView, animated: true, completion: nil)
+    }
+    
+    @objc func presentSettingsVC() {
+        let batteryTipsView = BatteryTipsViewController()
+        present(batteryTipsView, animated: true, completion: nil)
+    }
+    
     // Sending Message button action
     @objc func sendMessage() {
-        let user = User(firstName: DataService.firstName ?? "Test", lastName: DataService.lastName ?? "Test")
-        let message = Message(sender: user.asString(), content: "Hello World", timestamp: String(describing: date.timeIntervalSince1970))
-        networkService.sendOut(message: message)
+        
+        if !(textField.text == "") {
+            let message = Message(sender: DataService.currentUserID, content: textField.text!, timestamp: String(describing: NSDate().timeIntervalSince1970), status: DataService.status!)
+            messages.append(message)
+            messagesTableView.reloadData()
+            messagesTableView.scrollToBottom()
+            networkService.sendOut(message: message)
+            textField.text = ""
+        }
     }
     
     // MARK: TableView Delegate Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        30
+        messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath) as! MessageLeftCell
         
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if messages[indexPath.row].sender != DataService.currentUserID {
+            
+            let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath) as! MessageLeftCell
+            cell.bubbleView.text = messages[indexPath.row].content
+            cell.nameLabel.text = messages[indexPath.row].sender
+            
+            let status = messages[indexPath.row].status
+            
+            if status == "safe" {
+                cell.statusImage.image = UIImage(systemName: "checkmark.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+            } else if status == "stuck" {
+                cell.statusImage.image = UIImage(systemName: "minus.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.134888595, alpha: 1)
+            } else if status == "injuredNotSerious" {
+                cell.statusImage.image = UIImage(systemName: "xmark.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.9254902005, green: 0.321427631, blue: 0.1019607857, alpha: 1)
+            } else {
+                cell.statusImage.image = UIImage(systemName: "exclamationmark.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.9254902005, green: 0.1034246192, blue: 0.1019607857, alpha: 1)
+                cell.bubbleView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.1034246192, blue: 0.1019607857, alpha: 1)
+            }
+            
+            return cell
+            
+        } else {
+            
+            let cell = messagesTableView.dequeueReusableCell(withIdentifier: "RightMessage", for: indexPath) as! MessageRightCell
+            cell.bubbleView.text = messages[indexPath.row].content
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,22 +274,50 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
     }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        sendMessage()
+        return true
+    }
 }
+
+// MARK: Network Service Delegate Extension
 
 extension ChatViewController: NetworkServiceDelegate {
     
     // Functions Required by the delegate method
-    func connectedDevicesChanged(manager: NetworkService, connectedDevice: [String]) {
+    func connectedDevicesChanged(manager: NetworkService, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
-            // Do Something
+            if connectedDevices.isEmpty {
+                self.navLabel.text = "     Just You      "
+                self.navigationController?.navigationBar.topItem?.titleView = self.navLabel
+            } else {
+                self.navLabel.text = "\(connectedDevices.count) Connected"
+                self.navigationController?.navigationBar.topItem?.titleView = self.navLabel
+            }
         }
     }
     
     func receivedMessage(manager: NetworkService, message: Message) {
         OperationQueue.main.addOperation {
-            // Do Something
+            self.messages.append(message)
+            self.messagesTableView.reloadData()
+            self.messagesTableView.scrollToBottom()
         }
     }
-    
-    
+}
+
+extension UITableView {
+
+    func scrollToBottom(){
+
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.numberOfRows(inSection: self.numberOfSections - 1) - 1, section: self.numberOfSections - 1)
+            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
 }

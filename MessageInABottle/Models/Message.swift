@@ -12,4 +12,5 @@ struct Message: Codable {
     var sender: String
     var content: String
     var timestamp: String
+    var status: String
 }

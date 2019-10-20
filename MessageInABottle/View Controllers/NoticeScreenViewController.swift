@@ -42,7 +42,7 @@ class NoticeScreenViewController: UIViewController
         understandButton.layer.borderWidth = 5
         understandButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         understandButton.setTitleColor(.black, for: .normal)
-        
+        understandButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         
         view.addSubview(warningLogo)
         view.addSubview(noticeLabel)
@@ -80,6 +80,10 @@ class NoticeScreenViewController: UIViewController
             understandButton.heightAnchor.constraint(equalToConstant: view.frame.width / 9)
             
         ])
+    }
+    
+    @objc func dismissView() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

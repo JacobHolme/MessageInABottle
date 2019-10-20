@@ -25,7 +25,8 @@ class LoginScreen: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+    
+        logo.image = UIImage(named: "Logo")
         view.backgroundColor = UIColor(red: 189.0/255.0, green: 189.0/255.0, blue: 189.0/255.0, alpha: 1)
         
         logo.image = UIImage(named: "newLogo")
@@ -103,8 +104,11 @@ class LoginScreen: UIViewController
         DataService.firstName = firstNameTextField.text!
         DataService.lastName = lastNameTextField.text!
         
-        let vc = ChatViewController()
-        self.show(vc, sender: nil)
+        dismiss(animated: true) {
+            if DataService.status == nil {
+                self.present(SafetyStatusViewController(), animated: true, completion: nil)
+            }
+        }
     }
 }
 

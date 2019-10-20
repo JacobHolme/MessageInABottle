@@ -10,24 +10,31 @@ import UIKit
 
 class MessageRightCell: UITableViewCell {
     
-    let bubbleView: UILabel = {
-        let label = UILabel()
+    let bubbleView: PaddingLabel = {
+        let label = PaddingLabel()
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .blue
-        label.layer.cornerRadius = 10
+        label.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        self.addSubview(bubbleView)
         
         NSLayoutConstraint.activate([
         
-            bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 20)
+            bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
+            bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            bubbleView.leftAnchor.constraint(greaterThanOrEqualTo: self.centerXAnchor, constant: -10),
+            bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
         
         ])
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

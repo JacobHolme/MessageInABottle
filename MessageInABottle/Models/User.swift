@@ -12,7 +12,6 @@ struct User: Codable
 {
     var firstName: String
     var lastName: String
-    // var status: safetyStatus
     
     func asString() -> String {
         return firstName + " " + lastName

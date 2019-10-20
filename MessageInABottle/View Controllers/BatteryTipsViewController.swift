@@ -32,6 +32,7 @@ class BatteryTipsViewController: UIViewController
         dismissButton.layer.borderWidth = 5
         dismissButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         dismissButton.setTitleColor(.black, for: .normal)
+        dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
 
         view.addSubview(batterySaverLabel)
         view.addSubview(batterySaverDescription)
@@ -59,5 +60,9 @@ class BatteryTipsViewController: UIViewController
             
         ])
        
+    }
+    
+    @objc func dismissView() {
+        dismiss(animated: true, completion: nil)
     }
 }

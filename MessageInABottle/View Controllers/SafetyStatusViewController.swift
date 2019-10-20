@@ -150,9 +150,11 @@ class SafetyStatusViewController: UIViewController
         keyLabelColumn.addArrangedSubview(injuredNotSeriousLabel)
         keyLabelColumn.addArrangedSubview(injuredNeedsAttentionLabel)
 
-        
-        
-        
+        // add Targets
+        safeButton.addTarget(self, action: #selector(safeStatusSelected), for: .touchUpInside)
+        stuckButton.addTarget(self, action: #selector(stuckStatusSelected), for: .touchUpInside)
+        injuredNotSeriousButton.addTarget(self, action: #selector(injuredNotSeriousSelected), for: .touchUpInside)
+        injuredNeedsAttentionButton.addTarget(self, action: #selector(injuredNeedsAttentionSelected), for: .touchUpInside)
         
         view.addSubview(safetyStatusTitle)
         view.addSubview(descriptionLabel)
@@ -190,6 +192,26 @@ class SafetyStatusViewController: UIViewController
                     keyLabelColumn.topAnchor.constraint(equalTo: safetyStatusTitle.bottomAnchor, constant: 24),
                     keyLabelColumn.leadingAnchor.constraint(equalTo: keyIconColumn.trailingAnchor, constant: 24)
         ])
+    }
+    
+    @objc func safeStatusSelected() {
+        DataService.status = "safe"
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func stuckStatusSelected() {
+        DataService.status = "stuck"
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func injuredNotSeriousSelected() {
+        DataService.status = "injuryNotSerious"
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func injuredNeedsAttentionSelected() {
+        DataService.status = "injuryNeedsAttention"
+        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -76,7 +76,6 @@
 		4FE323CF235AD92B0012AF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1EBEF235C3184000DCDFF /* Message In A Bottle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Message In A Bottle.entitlements"; sourceTree = "<group>"; };
 		69F1C818235B8D5E0082AC2F /* BatteryTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryTipsViewController.swift; sourceTree = "<group>"; };
-    
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,7 +515,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MessageInABottle/Message In A Bottle.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = TGLE8RZWF5;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,7 +536,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MessageInABottle/Message In A Bottle.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = TGLE8RZWF5;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,7 +556,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L7JMX2727F;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -579,7 +578,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L7JMX2727F;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -600,7 +599,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L7JMX2727F;
+				DEVELOPMENT_TEAM = XLEYC29AG5;
 				INFOPLIST_FILE = MessageInABottleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
