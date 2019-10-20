@@ -36,7 +36,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var sendButton: UIButton = {
         let button = UIButton()
         button.setTitle("Send", for: .normal)
-        button.backgroundColor = .red
+        button.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -48,8 +48,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Text something here..."
-        textField.returnKeyType = .send
+        textField.returnKeyType = .done
         return textField
+    }()
+    
+    var navLabel: UILabel = {
+        let navLabel = UILabel()
+        navLabel.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        navLabel.textColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        return navLabel
     }()
     
     let dismissKeyboardGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -93,9 +100,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setupNavigationBar() {
         
-        // Refresh Button
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBrowsingAndAdvertising))
-            
+        // Left UIButtons
+        let refreshButton =  UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.circle.fill"), style: .plain, target: self, action: #selector(refreshBrowsingAndAdvertising))
+        refreshButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        let noticeButton = UIBarButtonItem(image: UIImage(systemName: "exclamationmark.triangle.fill"), style: .plain, target: self, action: #selector(presentNoticeVC))
+        noticeButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        
+        navigationItem.leftBarButtonItems = [refreshButton, noticeButton]
+        
+        // RightUIButtons
+        let statusButton = UIBarButtonItem(image: UIImage(systemName: "s.circle.fill"), style: .plain, target: self, action: #selector(presentStatusVC))
+        statusButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "bolt.fill"), style: .plain, target: self, action: #selector(presentSettingsVC))
+        settingsButton.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+        
+        navigationItem.rightBarButtonItems = [settingsButton, statusButton]
         
     }
     
@@ -144,7 +163,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = keyboardSize.cgRectValue
         
-        if self.view.frame.origin.y == 0{
+        if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= keyboardFrame.height
         }
     }
@@ -167,6 +186,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func refreshBrowsingAndAdvertising() {
         networkService.stopBrowsingAndAdvertising()
         networkService.startBrowsingAndAdvertising()
+    }
+    
+    @objc func presentNoticeVC() {
+        let noticeView = NoticeScreenViewController()
+        present(noticeView, animated: true, completion: nil)
+    }
+    
+    @objc func presentStatusVC() {
+        let statusView = SafetyStatusViewController()
+        present(statusView, animated: true, completion: nil)
+    }
+    
+    @objc func presentSettingsVC() {
+        let settingsView = SettingsViewController()
+        present(settingsView, animated: true, completion: nil)
     }
     
     // Sending Message button action
@@ -232,7 +266,13 @@ extension ChatViewController: NetworkServiceDelegate {
     // Functions Required by the delegate method
     func connectedDevicesChanged(manager: NetworkService, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
-            self.navigationItem.title = "\(connectedDevices)"
+            if connectedDevices.isEmpty {
+                self.navLabel.text = "     Just You      "
+                self.navigationController?.navigationBar.topItem?.titleView = self.navLabel
+            } else {
+                self.navLabel.text = "\(connectedDevices.count) Connected"
+                self.navigationController?.navigationBar.topItem?.titleView = self.navLabel
+            }
         }
     }
     

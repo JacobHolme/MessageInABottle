@@ -13,9 +13,6 @@ class NetworkService: NSObject {
     
     // Network Service Delegate
     var delegate: NetworkServiceDelegate?
-    
-    // JSON Decoder for parsing data
-    let decoder = JSONDecoder()
      
     // Last Recorded Crecentials to ensure the same message is NOT received and processed twice to the same device
     private var lastRecordedMessages: [Message] = []

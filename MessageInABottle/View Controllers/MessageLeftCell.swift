@@ -14,7 +14,7 @@ class MessageLeftCell: UITableViewCell {
         let label = PaddingLabel()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        label.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 15
         label.numberOfLines = 0
@@ -26,7 +26,7 @@ class MessageLeftCell: UITableViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica", size: 15)
+        label.font = UIFont(name: "Helvetica", size: 12)
         return label
     }()
     
@@ -42,7 +42,7 @@ class MessageLeftCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
         
             bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
-            bubbleView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            bubbleView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 10),
             bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
         

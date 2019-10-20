@@ -14,7 +14,7 @@ class MessageRightCell: UITableViewCell {
         let label = PaddingLabel()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
+        label.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 15
         label.numberOfLines = 0
