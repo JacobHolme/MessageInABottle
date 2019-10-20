@@ -205,7 +205,7 @@ class SafetyStatusViewController: UIViewController
     }
     
     @objc func injuredNotSeriousSelected() {
-        DataService.status = "injuryNotSerious"
+        DataService.status = "injuredNotSerious"
         dismiss(animated: true, completion: nil)
     }
     
