@@ -26,11 +26,18 @@ class LoginScreen: UIViewController
     {
         super.viewDidLoad()
         
+<<<<<<< HEAD
         view.backgroundColor = .white
         
         logo.image = UIImage(named: "Logo")
+=======
+        view.backgroundColor = UIColor(red: 189.0/255.0, green: 189.0/255.0, blue: 189.0/255.0, alpha: 1)
+>>>>>>> master
         
-        appNameLabel.text = "Message in a Bottle"
+        logo.image = UIImage(named: "newLogo")
+        logo.tintColor = .white
+        
+        //appNameLabel.text = "Message in a Bottle"
         
         firstNameLabel.text = "First Name:"
         firstNameTextField.placeholder = "Please enter your first name"
@@ -41,17 +48,19 @@ class LoginScreen: UIViewController
 
         
         loginButton.setTitle("Login", for: .normal)
-        loginButton.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        loginButton.backgroundColor = UIColor(red: 69.0/255.0, green: 228.0/255.0, blue: 119.0/255.0, alpha: 1)
         loginButton.layer.cornerRadius = 15
         loginButton.layer.borderWidth = 5
-        loginButton.layer.borderColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        loginButton.layer.borderColor = UIColor(red: 0.0/255.0, green: 141.0/255.0, blue: 39.0/255.0, alpha: 1).cgColor
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         
         firstNameRow.spacing = 6
+        firstNameRow.distribution = .equalSpacing
         firstNameRow.addArrangedSubview(firstNameLabel)
         firstNameRow.addArrangedSubview(firstNameTextField)
         
         lastNameRow.spacing = 6
+        lastNameRow.distribution = .equalSpacing
         lastNameRow.addArrangedSubview(lastNameLabel)
         lastNameRow.addArrangedSubview(lastNameTextField)
 
@@ -82,7 +91,9 @@ class LoginScreen: UIViewController
             outerFormStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            logo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height / -3.5),
+            logo.heightAnchor.constraint(equalToConstant: 250),
+            logo.widthAnchor.constraint(equalToConstant: 250),
             
             appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             appNameLabel.topAnchor.constraint(equalTo: logo.bottomAnchor),
