@@ -27,7 +27,7 @@
 		4FE323B8235AD92B0012AF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE323B6235AD92B0012AF6C /* LaunchScreen.storyboard */; };
 		4FE323C3235AD92B0012AF6C /* MessageInABottleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323C2235AD92B0012AF6C /* MessageInABottleTests.swift */; };
 		4FE323CE235AD92B0012AF6C /* MessageInABottleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */; };
-		69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */; };
+		69F1C819235B8D5E0082AC2F /* BatteryTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C818235B8D5E0082AC2F /* BatteryTipsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,7 @@
 		4FE323C9235AD92B0012AF6C /* MessageInABottleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessageInABottleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323CD235AD92B0012AF6C /* MessageInABottleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInABottleUITests.swift; sourceTree = "<group>"; };
 		4FE323CF235AD92B0012AF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		69F1C818235B8D5E0082AC2F /* BatteryTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryTipsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 				31ECB015235BC5E700408AAE /* MessageLeftCell.swift */,
 				31ECB014235BC5E700408AAE /* LoginScreen.swift */,
 				4FB15D7D235B8C7400561363 /* NoticeScreenViewController.swift */,
-				69F1C818235B8D5E0082AC2F /* SettingsViewController.swift */,
+				69F1C818235B8D5E0082AC2F /* BatteryTipsViewController.swift */,
 				4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */,
 			);
 			path = "View Controllers";
@@ -330,7 +330,7 @@
 				3135E119235B8DE000E73399 /* Message.swift in Sources */,
 				31ECB017235BC5E700408AAE /* MessageRightCell.swift in Sources */,
 				31BDCF02235BCBFC0066B799 /* User.swift in Sources */,
-				69F1C819235B8D5E0082AC2F /* SettingsViewController.swift in Sources */,
+				69F1C819235B8D5E0082AC2F /* BatteryTipsViewController.swift in Sources */,
 				4FE323AC235AD92A0012AF6C /* AppDelegate.swift in Sources */,
 				31BDCF04235BCC360066B799 /* DataService.swift in Sources */,
 				4FE323AE235AD92A0012AF6C /* SceneDelegate.swift in Sources */,
