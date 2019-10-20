@@ -61,7 +61,7 @@
 		31ECB015235BC5E700408AAE /* MessageLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageLeftCell.swift; sourceTree = "<group>"; };
 		4FB15D7D235B8C7400561363 /* NoticeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreenViewController.swift; sourceTree = "<group>"; };
 		4FB15D7F235BA1F100561363 /* SafetyStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyStatusViewController.swift; sourceTree = "<group>"; };
-		4FE323A8235AD92A0012AF6C /* MessageInABottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageInABottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FE323A8235AD92A0012AF6C /* Message In A Bottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message In A Bottle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE323AB235AD92A0012AF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FE323AD235AD92A0012AF6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4FE323B2235AD92A0012AF6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		4FE323A9235AD92A0012AF6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FE323A8235AD92A0012AF6C /* MessageInABottle.app */,
+				4FE323A8235AD92A0012AF6C /* Message In A Bottle.app */,
 				4FE323BE235AD92B0012AF6C /* MessageInABottleTests.xctest */,
 				4FE323C9235AD92B0012AF6C /* MessageInABottleUITests.xctest */,
 			);
@@ -208,7 +208,7 @@
 			);
 			name = MessageInABottle;
 			productName = MessageInABottle;
-			productReference = 4FE323A8235AD92A0012AF6C /* MessageInABottle.app */;
+			productReference = 4FE323A8235AD92A0012AF6C /* Message In A Bottle.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4FE323BD235AD92B0012AF6C /* MessageInABottleTests */ = {
@@ -518,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.holme.MessageInABottle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Message In A Bottle";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,7 +536,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.holme.MessageInABottle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Message In A Bottle";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
