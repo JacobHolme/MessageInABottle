@@ -83,11 +83,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         setupTableView()
         constrainViews()
+        setupNavigationBar()
         
         // if Messages are not empty scroll to the bottom by default
         if !messages.isEmpty {
             messagesTableView.scrollToBottom()
         }
+    }
+    
+    func setupNavigationBar() {
+        
+        // Refresh Button
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBrowsingAndAdvertising))
+            
+        
     }
     
     func setupTableView() {
@@ -155,6 +164,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.endEditing(true)
     }
     
+    @objc func refreshBrowsingAndAdvertising() {
+        networkService.stopBrowsingAndAdvertising()
+        networkService.startBrowsingAndAdvertising()
+    }
+    
     // Sending Message button action
     @objc func sendMessage() {
         
@@ -162,6 +176,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             let message = Message(sender: DataService.currentUserID, content: textField.text!, timestamp: String(describing: NSDate().timeIntervalSince1970))
             messages.append(message)
             messagesTableView.reloadData()
+            messagesTableView.scrollToBottom()
             networkService.sendOut(message: message)
             textField.text = ""
         }

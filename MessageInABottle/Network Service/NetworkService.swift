@@ -44,15 +44,23 @@ class NetworkService: NSObject {
         super.init()
         
         self.serviceAdvertiser.delegate = self
-        self.serviceAdvertiser.startAdvertisingPeer()
-        
         self.serviceBrowser.delegate = self
-        self.serviceBrowser.startBrowsingForPeers()
+        
+        startBrowsingAndAdvertising()
     }
     
     deinit {
-        self.serviceAdvertiser.stopAdvertisingPeer()
+        stopBrowsingAndAdvertising()
+    }
+    
+    func stopBrowsingAndAdvertising() {
         self.serviceBrowser.stopBrowsingForPeers()
+        self.serviceBrowser.stopBrowsingForPeers()
+    }
+    
+    func startBrowsingAndAdvertising() {
+        self.serviceAdvertiser.startAdvertisingPeer()
+        self.serviceBrowser.startBrowsingForPeers()
     }
     
     // A function for sending out a message to all connected devices on the network
