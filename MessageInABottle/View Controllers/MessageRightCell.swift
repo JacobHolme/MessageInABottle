@@ -30,7 +30,7 @@ class MessageRightCell: UITableViewCell {
         
             bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
             bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            bubbleView.leftAnchor.constraint(greaterThanOrEqualTo: self.centerXAnchor, constant: 10),
+            bubbleView.leftAnchor.constraint(greaterThanOrEqualTo: self.centerXAnchor, constant: -10),
             bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
         
         ])

@@ -18,6 +18,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Instance of Network Service
     let networkService = NetworkService()
     
+    var currentStatus = DataService.status ?? "stuck"
+    
     // MARK: Views
     
     var messagesTableView: UITableView = {
@@ -77,6 +79,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             let authenticationVC = LoginScreen()
             present(authenticationVC, animated: true, completion: nil)
         }
+        
+        if DataService.status == nil {
+            present(SafetyStatusViewController(), animated: true, completion: nil)
+        }
+        
+        
 
         // Specify Delegate
         networkService.delegate = self
@@ -199,15 +207,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func presentSettingsVC() {
-        let settingsView = SettingsViewController()
-        present(settingsView, animated: true, completion: nil)
+        let batteryTipsView = BatteryTipsViewController()
+        present(batteryTipsView, animated: true, completion: nil)
     }
     
     // Sending Message button action
     @objc func sendMessage() {
         
         if !(textField.text == "") {
-            let message = Message(sender: DataService.currentUserID, content: textField.text!, timestamp: String(describing: NSDate().timeIntervalSince1970))
+            let message = Message(sender: DataService.currentUserID, content: textField.text!, timestamp: String(describing: NSDate().timeIntervalSince1970), status: DataService.status!)
             messages.append(message)
             messagesTableView.reloadData()
             messagesTableView.scrollToBottom()
@@ -229,6 +237,24 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = messagesTableView.dequeueReusableCell(withIdentifier: "LeftMessage", for: indexPath) as! MessageLeftCell
             cell.bubbleView.text = messages[indexPath.row].content
             cell.nameLabel.text = messages[indexPath.row].sender
+            
+            let status = messages[indexPath.row].status
+            
+            if status == "safe" {
+                cell.statusImage.image = UIImage(systemName: "checkmark.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.2705882353, green: 0.8941176471, blue: 0.4666666667, alpha: 1)
+            } else if status == "stuck" {
+                cell.statusImage.image = UIImage(systemName: "minus.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.134888595, alpha: 1)
+            } else if status == "injuredNotSerious" {
+                cell.statusImage.image = UIImage(systemName: "xmark.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.9254902005, green: 0.321427631, blue: 0.1019607857, alpha: 1)
+            } else {
+                cell.statusImage.image = UIImage(systemName: "exclamationmark.circle.fill")
+                cell.statusImage.tintColor = #colorLiteral(red: 0.9254902005, green: 0.1034246192, blue: 0.1019607857, alpha: 1)
+                cell.bubbleView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.1034246192, blue: 0.1019607857, alpha: 1)
+            }
+            
             return cell
             
         } else {

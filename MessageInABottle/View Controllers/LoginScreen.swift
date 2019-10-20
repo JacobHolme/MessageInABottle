@@ -25,14 +25,9 @@ class LoginScreen: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-<<<<<<< HEAD
-        view.backgroundColor = .white
-        
+    
         logo.image = UIImage(named: "Logo")
-=======
         view.backgroundColor = UIColor(red: 189.0/255.0, green: 189.0/255.0, blue: 189.0/255.0, alpha: 1)
->>>>>>> master
         
         logo.image = UIImage(named: "newLogo")
         logo.tintColor = .white
@@ -109,7 +104,11 @@ class LoginScreen: UIViewController
         DataService.firstName = firstNameTextField.text!
         DataService.lastName = lastNameTextField.text!
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            if DataService.status == nil {
+                self.present(SafetyStatusViewController(), animated: true, completion: nil)
+            }
+        }
     }
 }
 

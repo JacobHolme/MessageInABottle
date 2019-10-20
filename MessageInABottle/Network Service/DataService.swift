@@ -30,6 +30,16 @@ class DataService {
         }
     }
     
+    static var status: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "status") as String?
+        }
+        
+        set {
+            return UserDefaults.standard.set(newValue, forKey: "status")
+        }
+    }
+    
     static var isLoggedIn: Bool? {
         get {
             return UserDefaults.standard.bool(forKey: "isLoggedIn") as Bool?
@@ -42,6 +52,10 @@ class DataService {
     
     static var currentUserID = {
         return DataService.firstName! + " " + DataService.lastName!
+    }()
+    
+    static var currentStatus = {
+        return DataService.status!
     }()
     
     

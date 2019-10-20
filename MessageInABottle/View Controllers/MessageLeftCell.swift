@@ -30,9 +30,17 @@ class MessageLeftCell: UITableViewCell {
         return label
     }()
     
+    let statusImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "xmark.circle.fill")
+        return imageView
+    }()
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
+        self.addSubview(statusImage)
         self.addSubview(bubbleView)
         self.addSubview(nameLabel)
         
@@ -40,10 +48,15 @@ class MessageLeftCell: UITableViewCell {
             
             nameLabel.leftAnchor.constraint(equalTo: bubbleView.leftAnchor, constant: 5),
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            
+            statusImage.leftAnchor.constraint(equalTo: nameLabel.rightAnchor, constant: 5),
+            statusImage.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            statusImage.heightAnchor.constraint(equalToConstant: 15),
+            statusImage.widthAnchor.constraint(equalToConstant: 15),
         
             bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
             bubbleView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
-            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 10),
+            bubbleView.rightAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: 15),
             bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
         
         ])

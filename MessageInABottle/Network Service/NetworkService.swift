@@ -70,8 +70,8 @@ class NetworkService: NSObject {
                 }
                 lastRecordedMessages.append(message)
                 
-                let message = "\(message.sender),\(message.content),\(message.timestamp)"
-                try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+                let stringMessage = "\(message.sender),\(message.content),\(message.timestamp),\(message.status)"
+                try self.session.send(stringMessage.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
                 
             } catch let error {
                 print("Error: \(error)")
@@ -121,7 +121,7 @@ extension NetworkService: MCSessionDelegate {
         print("Did Receive Data: \(data)")
         
         let strArray = String(data: data, encoding: .utf8)!.components(separatedBy: ",")
-        let message = Message(sender: strArray[0], content: strArray[1], timestamp: strArray[2])
+        let message = Message(sender: strArray[0], content: strArray[1], timestamp: strArray[2], status: strArray[3])
         
         if !messageInRecentHistory(incomingMessage: message) {
             self.delegate?.receivedMessage(manager: self, message: message)
